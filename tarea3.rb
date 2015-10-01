@@ -98,5 +98,5 @@ while (not value=="-1")
 end
 
 if(myList.count>0)
-	puts ("List: "+ myList.display)
+	puts (myList.display)
 end
