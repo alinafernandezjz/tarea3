@@ -1,0 +1,79 @@
+Variables estáticas
+	Este tipo de variables tienen un ámbito local pero su existencia es permanente, en la mayoría de los lenguajes se declaran con la palabra static. Si se declara este tipo de variable dentro de una función, aunque la función devuelva la variable esta permanecerá con el último valor que se le asignó.
+
+Ciclo de vida de las variables
+	El ciclo de vida de las variables depende de su tipo. Existen de instancia (u objeto), estáticas (o de clase) y locales (o de bloque). Las variables de instancia son creadas cuando se crea el objeto que las contiene, se inicializan por defecto. Las variables estáticas suelen existir para el resto del programa y se crean cuando la clase se usa por primera vez. Por último, las variables locales son creadas únicamente en la sentencia en la que estén definidas y pueden ser destruidas al salir del bloque.
+
+Memoria Dinámica (lenguaje c)
+	El manejo de memoria dinámica es la base de C y ofrece la capacidad de crear programas complejos que requieren grandes cantidades de memoria y los emplea de manera eficiente. Los programas utilizan variables globales y locales. El compilador reserva espacio en memoria para guardar los valores para estas variables. No siempre es posible conocer el número de variables con las que va a contar el programa. C contiene la opción de crear diferentes tipos de variables de forma dinámica, y para crear
+esas variables se utilizan funciones como: malloc(), realloc(), calloc(), y free().
+El espacio de memoria asignado a una variable generada de manera dinámica se crea durante la ejecución del programa, al contrario de las variables declaradas en código, que el espacio de memoria se les asigna en tiempo de compilación. La función malloc() devuelve un apuntador void* al bloque de memoria asignado, por lo tanto, hay que realizar un cast al tipo de apuntador requerido, para hacer buen uso de la memoria o de los datos que se lleguen a almacenar en dicho bloque de memoria. Una variable que es generada dinámicamente, se construye (por ejemplo con malloc) y se puede destruir durante el tiempo de ejecución. 
+
+Clase
+	Una clase se define como la descripción de un objeto que consta de una serie de métodos y datos que resumen las características (atributos) de este. Crear clases nos permite trabajar con código reutilizable, puesto que desde una clase se puede crear una instancia y así reutilizar el código escrito para esta si tener que volver a escribir el código para la instancia. La instancia toma el patrón de la clase padre, aunque las variables son independientes.
+
+Objeto
+	Cuando hablamos de un objeto en programación, podemos decir que se trata de un ente abstracto que permite clasificar los diferentes componentes de un programa, simplificando así su elaboración y haciéndolo más eficiente. Los objetos integran tanto los procedimientos como las variables y datos referentes al objeto. Los objetos se componen de 3 partes fundamentales: métodos, eventos y atributos.
+
+Instancia
+	Se le llama instancia a todo objeto que derive de algún otro. De esta forma, todos los objetos son instancias de algún otro, menos la clase Object que es la madre de todas.
+
+Herencia
+	La herencia es el mecanismo para compartir automáticamente métodos y datos entre clases, subclases y objetos. Ésta permite crear nuevas clases introduciendo las variaciones con respecto a su clase madre. Existen dos tipos de herencia:
+Herencia simple: Una subclase que puede heredar datos y métodos de una clase simple así como añadir o sustraer ciertos comportamientos.
+Herencia múltiple: Ofrece la posibilidad de adquirir métodos y datos de varias clases simultáneamente.
+
+Sobrecarga
+	La firma de un método es la combinación del tipo de dato que regresa, su nombre y su lista de argumentos. 
+La sobrecarga de métodos se define como la creación de varios métodos con el mismo nombre pero con diferentes firmas y definiciones. También existe la sobrecarga de constructores, es decir, cuando en una clase existen constructores múltiples.
+
+Ejemplo generado con java:
+
+/* Métodos sobrecargados */
+int calculaSuma(int x, int y, int z){
+    ...
+}
+int calculaSuma(double x, double y, double z){
+    ...
+}
+
+/* Error: estos métodos no están sobrecargados */
+int calculaSuma(int x, int y, int z){
+     ...
+}
+double calculaSuma(int x, int y, int z){
+    ...
+}
+
+Ensombrecimiento 
+	El “ensombrecimiento” es un problema en la programación que se produce cuando en un ámbito de validez se define una variable con nombre idéntico a otra válida en un ámbito superior.
+Ejemplo de ensombrecimiento:
+
+#include <stdio.h>
+int numero = 10;
+void funcion() 
+{
+    int numero;  /* Colisiona con variable global */
+    numero = 20; /* ¿A qué variable se le asigna el valor? */
+}
+int main(int argc, char *argv[]) 
+{
+    funcion();
+    /* Imprime el valor de numero */
+    printf("%d\n", numero); /* ¿Qué valor imprime? */
+    return 0;
+}
+
+Bibliografía
+Universidad Carlos III de Madrid. Departamento de Ingeniería Telemática. Recuperado el octubre de 2015, de Declaración de variables: http://www.it.uc3m.es/labas/course_notes/variables_es.html#variables_shadowing
+
+Universidad de las Palmas de Gran Canaria (ULPGC). La web de Sistemas Operativos (SOPA). Recuperado el octubre de 2015, de http://sopa.dis.ulpgc.es/fso/cpp/intro_c/introc63.htm
+
+Universidad Politécnica de Valencia. Recuperado el octubre de 2015, de Conceptos básicos de Programación Orientada a Objetos: http://www.upv.es/amiga/43.htm
+
+Massachusetts Institute of Technology. Universia. Recuperado el octubre de 2015, de Ámbito y acceso: http://mit.ocw.universia.net/1.00/s02/class-sessions/lecture-11/lecture-11.pdf
+
+Martínez, E. A. Memoria Dinámica y su uso en C. Recuperado el octubre de 2015, de Instituto Politécnico Nacional - Escuela Superior de Cómputo: http://eafranco.com/docencia/algoritmia/files/29_30/Clase_29_30.pdf
+
+Román Zamitiz, C. A. Sobrecarga de métodos y de constructores, Programando en Java. Recuperado el octubre de 2015, de Profesores UNAM: http://profesores.fi-b.unam.mx/carlos/java/java_basico4_6.html
+
